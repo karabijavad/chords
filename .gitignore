@@ -1,3 +1,4 @@
 diatonic.py
 *.swp
 *.bkup
+*.pyc

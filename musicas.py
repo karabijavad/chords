@@ -1,4 +1,6 @@
 #!/usr/bin/python2.7
+from __future__ import print_function
+from musicdefs import MAJORS
 
 CYCLE_OF_FIFTHS = {
         'C#' : 0,
@@ -43,6 +45,10 @@ CHROMATIC_SCALE = {
         'C'  : 0,
         }
 
+SHARPS = (
+        'A', 'A#', 'B', 'B#', 'C', 'C#', 'D', 'D#', 'E', 'E#', 'F', 'F#', 'G', 'G#'
+)
+
 class Note(object):
 
     def __init__(self): pass
@@ -56,5 +62,8 @@ class Interval(object):
 class Scale(object):
 
     def __init__(self): pass
+while 1:
 
-
+    tonic = raw_input('Enter a tonic: ')
+    notebase = MAJORS[tonic].split()
+    print(notebase)
