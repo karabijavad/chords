@@ -46,15 +46,8 @@ def get_major(tonic):
     for note in chromatic:
         if tonic == note:
             root = chromatic.index(tonic)
-            if root+4 > 11:
-                third = root+4-12
-                fifth = root+7-12
-            elif root+4 >= 5 and root+4 <= 11:
-                third = root+4
-                fifth = root+7-12
-            else:
-                third = root+4
-                fifth = root+7
+            third = ( root + 4 ) % 12
+            fifth = ( root + 7 ) % 12
             chord = c_tonic, c_third, c_fifth = itemgetter(root,third,fifth)(chromatic)
             print(chord)
             return chord
