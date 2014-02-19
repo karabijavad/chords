@@ -72,6 +72,7 @@ class Scale(object):
             self.scaledeg_1 = Note(str(self.processnote[0]), str(self.processnote[1]))
             self.notebase.append(self.scaledeg_1)
 
+        ##DEBUG##
         print(self.notebase[0].notename)
         self.notebase[0].flatten()
         print('flattened:', self.notebase[0].notename)
