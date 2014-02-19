@@ -51,8 +51,10 @@ SHARPS = (
 
 class Note(object):
 
-    def __init__(self): pass
-
+    def __init__(self, tonic, quality=None, symcount=None):
+        self.tonic = tonic
+        self.quality = quality
+        self.symcount = symcount
 
 class Interval(object):
 
@@ -61,9 +63,24 @@ class Interval(object):
 
 class Scale(object):
 
-    def __init__(self): pass
-while 1:
+    #might need to initialize variables used to create notes
+    #here in this namespace
+    def __init__(self, rawnote, scaletype=None):
+        self.rawnote = rawnote
+        self.notebase = []
+        self.scaletype = scaletype
+        self.processnote = list(self.rawnote)
 
-    tonic = raw_input('Enter a tonic: ')
-    notebase = MAJORS[tonic].split()
-    print(notebase)
+        if len(self.processnote) == 0 or len(self.processnote) > 2:
+            print("ERROR, too long or too short")
+        elif len(self.processnote) == 1:
+            self.scaledeg_1 = Note(self.processnote)
+            self.notebase.append(self.scaledeg_1)
+        else:
+            self.scaledeg_1 = Note(self.processnote[0], self.processnote[1])
+            self.notebase.append(self.scaledeg_1)
+
+        print(self.notebase[0].tonic)
+
+tonic = raw_input('Enter a tonic: ')
+Scale(tonic)
